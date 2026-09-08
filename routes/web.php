@@ -15,3 +15,15 @@ route :: get('/alunos', function(){
 route :: get('/contato', function(){
     return 'Fale conosco.';
 });
+
+Route::get('/produto/{id}', function ($id) {
+    return "Produto número {$id}";
+});
+
+Route::get('/categoria/{id}', function ($id) {
+    return "Categoria número {$id}";
+});
+
+Route::get('/usuario/{id}', function ($id) {
+    return "Usuário número {$id}";
+});
