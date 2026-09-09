@@ -1,1 +1,5 @@
-<h1>Lista de Alunos</h1>
+@extends('layouts.app')
+@section('content')
+    <h1>Alunos</h1>
+    <p>Lista de alunos aparecerá aqui.</p>
+@endsection
