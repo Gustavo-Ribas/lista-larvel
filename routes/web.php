@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlunoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +23,27 @@ require __DIR__.'/auth.php';
 Route::get('/admin', function () {
     return 'Painel administrativo';
 })->middleware('role:admin');
+
+Route::get('/sobre', function () {
+    return 'Esta é a página Sobre.';
+});
+
+Route::get('/contato', function () {
+    return 'Fale conosco.';
+});
+
+Route::get('/produto/{id}', function ($id) {
+    return "Produto número {$id}";
+});
+
+Route::get('/categoria/{id}', function ($id) {
+    return "Categoria número {$id}";
+});
+
+Route::get('/usuario/{id}', function ($id) {
+    return "Usuário número {$id}";
+});
+
+Route::resource('alunos', AlunoController::class);
+
+Route::get('/cursos/{id}/alunos', [AlunoController::class, 'alunosDoCurso']);

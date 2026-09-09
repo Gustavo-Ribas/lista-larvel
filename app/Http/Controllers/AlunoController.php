@@ -22,6 +22,7 @@ class AlunoController extends Controller
 
     public function store(AlunoRequest $request)
     {
+    $this->authorize('create', Aluno::class);
     Aluno::create($request->validated());
     return redirect()->route('alunos.index');
     }
@@ -41,14 +42,17 @@ class AlunoController extends Controller
     public function update(Request $request, string $id)
     {
         $aluno = Aluno::findOrFail($id);
+         $this->authorize('update', $aluno);
         $aluno->update($request->only('nome', 'curso', 'email'));
         return redirect()->route('alunos.index');
     }
 
     public function destroy(string $id)
     {
+         $aluno = Aluno::findOrFail($id);
+        $this->authorize('delete', $aluno);
         Aluno::destroy($id);
-        return redirect()->route('alunos.index');
+            return redirect()->route('alunos.index');
     }
 
     public function alunosDoCurso(string $id)
