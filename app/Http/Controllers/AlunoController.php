@@ -11,7 +11,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        return view('alunos.index');
     }
 
     /**

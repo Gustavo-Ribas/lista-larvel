@@ -12,9 +12,6 @@ Route::get('/', function () {
 route :: get('/sobre', function(){
     return 'Esta é a pagina Sobre.';
 });
-route :: get('/alunos', function(){
-    return 'Lista de alunos.';
-});
 route :: get('/contato', function(){
     return 'Fale conosco.';
 });
