@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Aluno;
 
 class AlunoController extends Controller
 {
@@ -11,6 +12,17 @@ class AlunoController extends Controller
      */
     public function index()
     {
+         // 1. alunos de um curso
+         // dd(Aluno::where('curso', 'ADS')->get());
+
+        // 2. nome contém uma palavra
+        // dd(Aluno::where('nome', 'like', '%ana%')->get());
+
+        // 3. cadastrados recentemente (últimos 7 dias)
+        // dd(Aluno::where('created_at', '>=', now()->subDays(7))->get());
+
+        // 4. quantidade de alunos
+        //dd(Aluno::count());
         return view('alunos.index');
     }
 
