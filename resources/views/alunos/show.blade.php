@@ -1,4 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Detalhes do Aluno</h1>
+    <h1>{{ $aluno->nome }}</h1>
+    <p>Curso: {{ $aluno->curso }}</p>
+    <p>Email: {{ $aluno->email }}</p>
 @endsection
