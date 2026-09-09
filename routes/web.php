@@ -15,3 +15,4 @@ route :: get('/sobre', function(){
 route :: get('/contato', function(){
     return 'Fale conosco.';
 });
+Route::get('/cursos/{id}/alunos', [AlunoController::class, 'alunosDoCurso']);

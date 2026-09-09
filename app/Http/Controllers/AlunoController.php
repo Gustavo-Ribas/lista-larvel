@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Aluno;
 use App\Http\Requests\AlunoRequest;
+use App\Models\Curso;
 
 class AlunoController extends Controller
 {
@@ -49,4 +50,10 @@ class AlunoController extends Controller
         Aluno::destroy($id);
         return redirect()->route('alunos.index');
     }
+
+    public function alunosDoCurso(string $id)
+{
+    $curso = Curso::with('alunos')->findOrFail($id);
+    return view('cursos.alunos', compact('curso'));
+}
 }
