@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aluno;
+use App\Http\Requests\AlunoRequest;
 
 class AlunoController extends Controller
 {
@@ -18,10 +19,10 @@ class AlunoController extends Controller
         return view('alunos.create');
     }
 
-    public function store(Request $request)
+    public function store(AlunoRequest $request)
     {
-        Aluno::create($request->only('nome', 'curso', 'email'));
-        return redirect()->route('alunos.index');
+    Aluno::create($request->validated());
+    return redirect()->route('alunos.index');
     }
 
     public function show(string $id)
