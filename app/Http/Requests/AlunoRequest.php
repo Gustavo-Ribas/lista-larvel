@@ -19,4 +19,15 @@ class AlunoRequest extends FormRequest
             'email' => 'required|email|unique:alunos,email',
         ];
     }
+
+    public function messages(): array
+    {
+    return [
+        'nome.required'  => 'O nome é obrigatório.',
+        'curso.required' => 'Informe o curso do aluno.',
+        'email.required' => 'O e-mail é obrigatório.',
+        'email.email'    => 'Digite um e-mail válido.',
+        'email.unique'   => 'Este e-mail já está cadastrado.',
+     ];
+    }
 }
