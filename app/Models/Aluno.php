@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Aluno extends Model
 {
@@ -11,4 +12,9 @@ class Aluno extends Model
     {
         return $this->belongsTo(Curso::class);
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }
