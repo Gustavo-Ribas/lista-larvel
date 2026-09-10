@@ -1,0 +1,20 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Aluno;
+
+class AlunoSeeder extends Seeder
+{
+    public function run(): void
+    {
+        for ($i = 1; $i <= 10; $i++) {
+            Aluno::create([
+                'nome'  => "Aluno {$i}",
+                'curso' => 'ADS',
+                'email' => "aluno{$i}@teste.com",
+            ]);
+        }
+    }
+}
